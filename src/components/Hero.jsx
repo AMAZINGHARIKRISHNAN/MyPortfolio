@@ -68,7 +68,7 @@ export default function Hero() {
 
   return (
     <div className="hero-glow">
-      <div className="max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-28 pb-20 md:pt-36 md:pb-28 min-h-screen">
+      <div className="max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-28 pb-20 md:pt-36 md:pb-28 min-h-svh">
 
         {/* Left: statement */}
         <motion.div
@@ -144,7 +144,7 @@ export default function Hero() {
               )}
             </div>
           </div>
-          <p className="font-mono text-[11px] text-zinc-600 text-center mt-4">
+          <p className="hidden md:block font-mono text-[11px] text-zinc-600 text-center mt-4">
             press <kbd className="px-1.5 py-0.5 rounded border border-zinc-700 text-zinc-400">ctrl</kbd>{' '}
             + <kbd className="px-1.5 py-0.5 rounded border border-zinc-700 text-zinc-400">k</kbd> to navigate
           </p>
