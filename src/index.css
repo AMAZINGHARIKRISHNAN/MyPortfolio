@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #080c14;
+  color: #e2e8f0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
+}
+
+/* Animated grid background */
+.app-bg {
+  background-color: #080c14;
+  background-image:
+    radial-gradient(ellipse at 10% 0%, rgba(34, 211, 238, 0.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(34, 211, 238, 0.06) 0%, transparent 55%),
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+}
+
+/* Avatar glow */
+.avatar-glow {
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.35), 0 0 40px rgba(34, 211, 238, 0.18), 0 0 80px rgba(34, 211, 238, 0.08);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1525;
+}
+::-webkit-scrollbar-thumb {
+  background: #22d3ee;
+  border-radius: 2px;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cursor blink for typewriter */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
