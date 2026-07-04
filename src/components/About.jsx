@@ -20,8 +20,8 @@ const modules = [
 ]
 
 const clients = [
-  { name: 'The Nest School', logo: '/assets/images/brand/client-nest.png', url: 'https://thenest.school/' },
-  { name: 'MSEC', logo: '/assets/images/brand/client-msec.png', url: 'https://msec.edu.in/' },
+  { name: 'The Nest School', logo: '/assets/images/brand/client-nest.webp', url: 'https://thenest.school/' },
+  { name: 'MSEC', logo: '/assets/images/brand/client-msec.webp', url: 'https://msec.edu.in/' },
 ]
 
 export default function About() {
