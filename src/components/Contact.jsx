@@ -1,12 +1,53 @@
-import { useState } from 'react'
-import { Send, CheckCircle, RotateCcw } from 'lucide-react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Send, CheckCircle, RotateCcw, Mail, MapPin, Clock, Copy, Check, Github, Linkedin, Phone } from 'lucide-react'
+import Section from './Section'
+import { EMAIL, GITHUB, LINKEDIN } from '../data'
+
+function useTokyoTime() {
+  const [time, setTime] = useState('')
+  useEffect(() => {
+    const fmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Tokyo',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    })
+    const update = () => setTime(fmt.format(new Date()))
+    update()
+    const id = setInterval(update, 1000)
+    return () => clearInterval(id)
+  }, [])
+  return time
+}
+
+function InfoRow({ icon: Icon, label, children }) {
+  return (
+    <div className="flex items-center gap-3.5">
+      <div className="w-9 h-9 rounded-lg bg-lime-400/10 flex items-center justify-center text-lime-400 flex-shrink-0">
+        <Icon size={15} />
+      </div>
+      <div className="min-w-0">
+        <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">{label}</p>
+        <div className="text-sm text-zinc-300 mt-0.5">{children}</div>
+      </div>
+    </div>
+  )
+}
 
 export default function Contact() {
   const [form, setForm] = useState({ fullname: '', email: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [copied, setCopied] = useState(false)
+  const tokyoTime = useTokyoTime()
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText(EMAIL)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -29,95 +70,103 @@ export default function Contact() {
   }
 
   const isValid = form.fullname.trim() && form.email.trim() && form.message.trim()
+  const inputCls =
+    'w-full bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-lime-400/60 transition-colors'
 
   return (
-    <article className="space-y-8 lg:space-y-10">
-      <header>
-        <h2 className="text-2xl lg:text-3xl font-semibold text-white">
-          Get In <span className="text-cyan-400">Touch</span>
-        </h2>
-        <div className="mt-2 w-12 h-0.5 bg-cyan-400 rounded-full" />
-      </header>
+    <Section id="contact" cmd="./contact --send" title="Get In Touch">
+      <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16">
 
-      <div className="rounded-2xl overflow-hidden h-48 lg:h-64 border border-white/10">
-        <iframe
-          src="https://www.google.com/maps?q=Akihabara,+Chiyoda,+Tokyo,+Japan&output=embed"
-          width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="Location map"
-        />
+        {/* Left: channels */}
+        <div className="space-y-6">
+          <InfoRow icon={Mail} label="email">
+            <span className="flex items-center gap-2">
+              <span className="truncate">{EMAIL}</span>
+              <button onClick={copyEmail} title="Copy" className="text-zinc-500 hover:text-lime-400 transition-colors flex-shrink-0">
+                {copied ? <Check size={13} className="text-lime-400" /> : <Copy size={13} />}
+              </button>
+            </span>
+          </InfoRow>
+
+          <InfoRow icon={Phone} label="phone">
+            <a href="tel:+918072324813" className="hover:text-lime-400 transition-colors">+91 8072324813</a>
+          </InfoRow>
+
+          <InfoRow icon={MapPin} label="location">
+            Tokyo, Japan 🇯🇵
+          </InfoRow>
+
+          <InfoRow icon={Clock} label="local time">
+            <span className="font-mono tabular-nums">{tokyoTime} JST</span>
+          </InfoRow>
+
+          <div className="flex gap-3 pt-2">
+            <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+              className="w-10 h-10 rounded-lg border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-lime-400 hover:border-lime-400/40 transition-colors">
+              <Github size={17} />
+            </a>
+            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              className="w-10 h-10 rounded-lg border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-lime-400 hover:border-lime-400/40 transition-colors">
+              <Linkedin size={17} />
+            </a>
+          </div>
+        </div>
+
+        {/* Right: form */}
+        <AnimatePresence mode="wait">
+          {status === 'success' ? (
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.25 }}
+              className="rounded-xl border border-lime-400/30 bg-lime-400/[0.03] p-10 flex flex-col items-center text-center gap-4"
+            >
+              <CheckCircle size={40} className="text-lime-400" />
+              <div>
+                <h3 className="font-mono font-bold text-zinc-100 text-lg">message sent — exit 0</h3>
+                <p className="text-zinc-400 text-sm mt-2">Thanks for reaching out. I'll get back to you soon.</p>
+              </div>
+              <button
+                onClick={() => setStatus('idle')}
+                className="flex items-center gap-2 font-mono text-sm px-5 py-2.5 rounded-lg border border-zinc-700 text-zinc-400 hover:text-zinc-100 hover:border-zinc-500 transition-colors"
+              >
+                <RotateCcw size={14} /> send another
+              </button>
+            </motion.div>
+          ) : (
+            <motion.form
+              key="form"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onSubmit={handleSubmit}
+              className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 md:p-8 space-y-4"
+            >
+              <div className="grid sm:grid-cols-2 gap-4">
+                <input type="text" name="fullname" placeholder="full name" value={form.fullname} onChange={handleChange} required className={inputCls} />
+                <input type="email" name="email" placeholder="email address" value={form.email} onChange={handleChange} required className={inputCls} />
+              </div>
+              <textarea name="message" placeholder="your message…" value={form.message} onChange={handleChange} required rows={6} className={`${inputCls} resize-none`} />
+
+              {status === 'error' && (
+                <p className="font-mono text-sm text-red-400">error: something went wrong — try again</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={!isValid || status === 'loading'}
+                className="inline-flex items-center gap-2 font-mono font-bold text-sm px-6 py-3 rounded-lg bg-lime-400 text-zinc-950 hover:bg-lime-300 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <Send size={15} />
+                {status === 'loading' ? 'sending…' : 'send message'}
+              </button>
+            </motion.form>
+          )}
+        </AnimatePresence>
+
       </div>
-
-      <AnimatePresence mode="wait">
-        {status === 'success' ? (
-          /* Success card */
-          <motion.div
-            key="success"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white/5 border border-cyan-400/30 rounded-2xl p-10 lg:p-14 flex flex-col items-center text-center gap-5"
-          >
-            <div className="w-20 h-20 rounded-full bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center">
-              <CheckCircle size={40} className="text-cyan-400" />
-            </div>
-            <div>
-              <h3 className="text-xl lg:text-2xl font-semibold text-white mb-2">Message Sent!</h3>
-              <p className="text-slate-400 text-sm lg:text-base">Thanks for reaching out. I'll get back to you as soon as possible.</p>
-            </div>
-            <button
-              onClick={() => setStatus('idle')}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/20 transition-all text-sm"
-            >
-              <RotateCcw size={15} />
-              Send another message
-            </button>
-          </motion.div>
-        ) : (
-          /* Contact form */
-          <motion.form
-            key="form"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onSubmit={handleSubmit}
-            className="bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8 space-y-5"
-          >
-            <h3 className="font-semibold text-white text-base lg:text-lg">Send a Message</h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
-              <input
-                type="text" name="fullname" placeholder="Full name"
-                value={form.fullname} onChange={handleChange} required
-                className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-3.5 text-sm lg:text-base text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/50 transition-colors"
-              />
-              <input
-                type="email" name="email" placeholder="Email address"
-                value={form.email} onChange={handleChange} required
-                className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-3.5 text-sm lg:text-base text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/50 transition-colors"
-              />
-            </div>
-
-            <textarea
-              name="message" placeholder="Your message"
-              value={form.message} onChange={handleChange} required rows={6}
-              className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-3.5 text-sm lg:text-base text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/50 transition-colors resize-none"
-            />
-
-            {status === 'error' && (
-              <p className="text-red-400 text-sm lg:text-base">Something went wrong. Please try again.</p>
-            )}
-
-            <button
-              type="submit"
-              disabled={!isValid || status === 'loading'}
-              className="flex items-center gap-2 px-7 py-3.5 bg-cyan-400 text-[#080c14] text-sm lg:text-base font-semibold rounded-xl hover:bg-cyan-300 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              <Send size={17} />
-              {status === 'loading' ? 'Sending…' : 'Send Message'}
-            </button>
-          </motion.form>
-        )}
-      </AnimatePresence>
-    </article>
+    </Section>
   )
 }

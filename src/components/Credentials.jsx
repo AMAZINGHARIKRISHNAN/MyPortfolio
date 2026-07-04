@@ -1,59 +1,32 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Section from './Section'
 import Carousel from './Carousel'
-
-const achievements = [
-  '/assets/images/achievements/achievement-1.png',
-  '/assets/images/achievements/achievement-2.png',
-  '/assets/images/achievements/achievement-3.png',
-  '/assets/images/achievements/achievement-4.png',
-  '/assets/images/achievements/achievement-5.png',
-  '/assets/images/achievements/achievement-6.jpg',
-  '/assets/images/achievements/achievement-7.jpg',
-  '/assets/images/achievements/achievement-8.jpg',
-]
-
-const certifications = [
-  '/assets/images/certifications/certification-1.jpeg',
-  '/assets/images/certifications/certification-2.jpeg',
-  '/assets/images/certifications/certification-3.png',
-  '/assets/images/certifications/certification-4.png',
-  '/assets/images/certifications/certification-5.png',
-  '/assets/images/certifications/certification-6.jpg',
-  '/assets/images/certifications/certification-7.png',
-]
+import { achievements, certifications } from '../data'
 
 export default function Credentials() {
   const [tab, setTab] = useState('achievements')
+  const items = tab === 'achievements' ? achievements : certifications
 
   return (
-    <article className="h-full flex flex-col gap-5 lg:gap-6">
-      <header className="flex-shrink-0">
-        <h2 className="text-2xl lg:text-3xl font-semibold text-white">
-          My <span className="text-cyan-400">Credentials</span>
-        </h2>
-        <div className="mt-2 w-12 h-0.5 bg-cyan-400 rounded-full" />
-      </header>
-
-      {/* Toggle */}
-      <div className="flex-shrink-0 flex gap-2">
+    <Section id="credentials" cmd={`open ./${tab}`} title="Credentials">
+      <div className="flex gap-2 mb-8 font-mono text-sm">
         {['achievements', 'certifications'].map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
-            className={`px-5 py-2 lg:px-6 lg:py-2.5 rounded-xl text-sm lg:text-base font-medium capitalize transition-all ${
+            className={`px-4 py-2 rounded-lg transition-colors ${
               tab === t
-                ? 'bg-cyan-400 text-[#080c14]'
-                : 'bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/20'
+                ? 'bg-lime-400 text-zinc-950 font-bold'
+                : 'border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:border-zinc-600'
             }`}
           >
-            {t}
+            {t} <span className="opacity-60">({t === 'achievements' ? achievements.length : certifications.length})</span>
           </button>
         ))}
       </div>
 
-      {/* Carousel fills remaining space */}
-      <div className="flex-1 min-h-0">
+      <div className="h-[380px] md:h-[520px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={tab}
@@ -63,13 +36,10 @@ export default function Credentials() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
           >
-            <Carousel
-              items={tab === 'achievements' ? achievements : certifications}
-              altPrefix={tab === 'achievements' ? 'Achievement' : 'Certification'}
-            />
+            <Carousel items={items} altPrefix={tab === 'achievements' ? 'achievement' : 'certification'} />
           </motion.div>
         </AnimatePresence>
       </div>
-    </article>
+    </Section>
   )
 }

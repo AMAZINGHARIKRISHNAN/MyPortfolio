@@ -49,12 +49,25 @@ export default function Carousel({ items, altPrefix = 'Slide' }) {
 
   return (
     <div
-      className="h-full flex flex-col bg-white/5 border border-white/10 rounded-2xl p-5 lg:p-8"
+      className="h-full flex flex-col rounded-xl border border-zinc-800 bg-[#0c0c0e] overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Image — fills all remaining height */}
-      <div className="flex-1 min-h-0 relative overflow-hidden rounded-xl bg-black/30">
+      {/* window bar */}
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-zinc-800 bg-zinc-900/60 flex-shrink-0">
+        <span className="font-mono text-xs text-zinc-500">
+          {altPrefix.toLowerCase()}-{current + 1}.png — preview
+        </span>
+        {!paused && (
+          <span className="flex items-center gap-1.5 font-mono text-[11px] text-zinc-500">
+            <span className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse" />
+            auto
+          </span>
+        )}
+      </div>
+
+      {/* image */}
+      <div className="flex-1 min-h-0 relative overflow-hidden bg-black/40">
         <AnimatePresence custom={direction} mode="wait">
           <motion.img
             key={current}
@@ -67,32 +80,24 @@ export default function Carousel({ items, altPrefix = 'Slide' }) {
             src={items[current]}
             alt={`${altPrefix} ${current + 1}`}
             decoding="async"
-            className="absolute inset-0 w-full h-full object-contain"
+            className="absolute inset-0 w-full h-full object-contain p-3"
           />
         </AnimatePresence>
-
-        {/* Auto-play indicator */}
-        {!paused && (
-          <div className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-full">
-            <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="text-xs text-slate-400">Auto</span>
-          </div>
-        )}
       </div>
 
-      {/* Controls */}
-      <div className="flex-shrink-0 flex items-center justify-between mt-4 lg:mt-5">
+      {/* controls */}
+      <div className="flex-shrink-0 flex items-center justify-between px-4 py-3 border-t border-zinc-800">
         <button
           onClick={() => go(-1)}
-          className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 transition-all"
+          className="w-9 h-9 rounded-lg border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-lime-400 hover:border-lime-400/40 transition-colors"
           aria-label="Previous"
         >
-          <ChevronLeft size={20} />
+          <ChevronLeft size={17} />
         </button>
 
         <div className="flex items-center gap-3">
-          <span className="text-sm lg:text-base text-slate-500 tabular-nums">
-            {current + 1} / {items.length}
+          <span className="font-mono text-xs text-zinc-500 tabular-nums">
+            {current + 1}/{items.length}
           </span>
           <div className="flex gap-1.5">
             {items.map((_, i) => (
@@ -100,8 +105,8 @@ export default function Carousel({ items, altPrefix = 'Slide' }) {
                 key={i}
                 onClick={() => goto(i)}
                 aria-label={`Slide ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === current ? 'w-6 bg-cyan-400' : 'w-1.5 bg-white/20 hover:bg-white/40'
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  i === current ? 'w-5 bg-lime-400' : 'w-1.5 bg-zinc-700 hover:bg-zinc-500'
                 }`}
               />
             ))}
@@ -110,10 +115,10 @@ export default function Carousel({ items, altPrefix = 'Slide' }) {
 
         <button
           onClick={() => go(1)}
-          className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 transition-all"
+          className="w-9 h-9 rounded-lg border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-lime-400 hover:border-lime-400/40 transition-colors"
           aria-label="Next"
         >
-          <ChevronRight size={20} />
+          <ChevronRight size={17} />
         </button>
       </div>
     </div>
