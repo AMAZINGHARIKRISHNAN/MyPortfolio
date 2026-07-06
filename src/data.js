@@ -41,6 +41,7 @@ export const projects = [
     title: 'TheNestSecurity',
     category: 'mobile',
     image: '/assets/images/projects/nestsecurity.webp',
+    fit: 'contain',
     desc: 'Cross-platform security and monitoring app for The Nest School campus.',
     tech: ['flutter', 'firebase'],
     github: '#',
@@ -61,6 +62,7 @@ export const projects = [
     title: 'MedScan Master',
     category: 'web',
     image: '/assets/images/projects/medscan.webp',
+    fit: 'contain',
     desc: 'Medical document scanning and intelligent management application.',
     tech: ['python', 'react', 'firebase'],
     github: '#',
@@ -123,6 +125,7 @@ export const achievements = [
 ]
 
 export const certifications = [
+  '/assets/images/certifications/certification-8.webp',
   '/assets/images/certifications/certification-1.webp',
   '/assets/images/certifications/certification-2.webp',
   '/assets/images/certifications/certification-3.webp',

@@ -69,7 +69,9 @@ export default function Projects() {
                   alt={p.title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
+                  className={`w-full h-full opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500 ${
+                    p.fit === 'contain' ? 'object-contain p-2' : 'object-cover'
+                  }`}
                 />
               </div>
 
