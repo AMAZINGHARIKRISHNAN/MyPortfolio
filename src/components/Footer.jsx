@@ -1,12 +1,14 @@
 import { Github, Linkedin } from 'lucide-react'
 import { GITHUB, LINKEDIN } from '../data'
+import { useT } from '../i18n'
 
 export default function Footer() {
+  const t = useT()
   return (
     <footer className="border-t border-zinc-800/60 mt-8">
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="font-mono text-xs text-zinc-500">
-          <span className="text-lime-400">$</span> exit <span className="text-zinc-700">·</span> © 2026 Harikrishnan P
+          <span className="text-lime-400">$</span> exit <span className="text-zinc-700">·</span> {t.footer.name}
         </p>
         <div className="flex items-center gap-4">
           <a href={GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-zinc-500 hover:text-lime-400 transition-colors">

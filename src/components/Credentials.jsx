@@ -11,7 +11,7 @@ export default function Credentials() {
   const items = tab === 'achievements' ? achievements : certifications
 
   return (
-    <Section id="credentials" cmd={`open ./${tab}`} title={t.credentials.title}>
+    <Section id="credentials" cmd={t.credentials.cmds[tab]} title={t.credentials.title}>
       <div className="flex gap-2 mb-8 font-mono text-sm">
         {['achievements', 'certifications'].map((tabId) => (
           <button
@@ -39,7 +39,7 @@ export default function Credentials() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
           >
-            <Carousel items={items} altPrefix={tab === 'achievements' ? 'achievement' : 'certification'} />
+            <Carousel items={items} altPrefix={t.credentials.filePrefix[tab]} />
           </motion.div>
         </AnimatePresence>
       </div>

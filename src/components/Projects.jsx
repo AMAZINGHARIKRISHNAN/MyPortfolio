@@ -13,7 +13,7 @@ export default function Projects() {
   const filtered = active === 'all' ? projects : projects.filter((p) => p.category === active)
 
   return (
-    <Section id="projects" cmd={`ls ./projects --filter=${active}`} title={t.projects.title}>
+    <Section id="projects" cmd={`${t.projects.cmd}${t.projects.filters[active]}`} title={t.projects.title}>
       <div className="flex gap-2 mb-8 font-mono text-sm">
         {filters.map((f) => (
           <button

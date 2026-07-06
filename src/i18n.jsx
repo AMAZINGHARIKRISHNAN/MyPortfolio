@@ -12,6 +12,7 @@ const T = {
     },
     hero: {
       status: 'open to interesting problems — tokyo, japan',
+      nameKana: '',
       roles: ['AI Software Developer', 'RAG Engineer', 'Full Stack Developer', 'ML Systems Builder'],
       pitch:
         'I build AI systems that ship — Retrieval-Augmented Generation pipelines and LLM-powered applications at Thirdwave Corporation, with a full-stack background across web and mobile.',
@@ -19,9 +20,20 @@ const T = {
       downloadCv: 'download cv',
       kbdPre: 'press',
       kbdPost: 'to navigate',
+      termTitle: 'hari@thirdwave — zsh',
+      script: [
+        { type: 'cmd', text: 'whoami' },
+        { type: 'out', text: 'Harikrishnan P — AI Software Developer @ Thirdwave Corporation 🇯🇵' },
+        { type: 'cmd', text: 'cat ./current-focus', pause: 500 },
+        { type: 'out', text: '▸ RAG pipelines · LLM workflows · production AI systems' },
+        { type: 'cmd', text: 'uptime --career', pause: 500 },
+        { type: 'out', text: 'AI dev @ Tokyo since 2025 · 6 shipped projects · 16 credentials' },
+      ],
     },
     about: {
       title: 'About',
+      cmd: 'cat ./about.md',
+      modulesCmd: 'modules --loaded',
       p1: [
         "I'm an AI Software Developer at ",
         'Thirdwave Corporation, Tokyo',
@@ -29,6 +41,11 @@ const T = {
       ],
       p2: 'Before Tokyo: a B.Tech in Information Technology from MSEC, internships in software development and networking, and real products shipped for real organizations while still a student.',
       trustedBy: 'trusted by',
+      moduleNames: {
+        'ai.development': 'ai.development',
+        'web.development': 'web.development',
+        'mobile.apps': 'mobile.apps',
+      },
       modules: {
         'ai.development': 'RAG pipelines and intelligent applications powered by large language models.',
         'web.development': 'Fast, responsive, scalable web applications built at a professional level.',
@@ -37,6 +54,7 @@ const T = {
     },
     projects: {
       title: 'Selected Work',
+      cmd: 'ls ./projects --filter=',
       filters: { all: 'all', web: 'web', mobile: 'mobile' },
       desc: {
         adminxpert: 'Administrative management platform with custom workflows powering day-to-day school operations.',
@@ -49,6 +67,8 @@ const T = {
     },
     experience: {
       title: 'Experience',
+      cmd: 'cat ./experience.log',
+      eduCmd: 'cat ./education.log',
       current: 'current',
       items: {
         'Thirdwave Corporation': {
@@ -87,6 +107,7 @@ const T = {
     },
     skills: {
       title: 'Skills',
+      cmd: 'pkg list --installed',
       groups: {
         'ai & ml': 'ai & ml',
         languages: 'languages',
@@ -97,11 +118,18 @@ const T = {
     },
     credentials: {
       title: 'Credentials',
+      cmds: { achievements: 'open ./achievements', certifications: 'open ./certifications' },
       achievements: 'achievements',
       certifications: 'certifications',
+      filePrefix: { achievements: 'achievement', certifications: 'certification' },
+    },
+    carousel: {
+      preview: 'preview',
+      auto: 'auto',
     },
     contact: {
       title: 'Get In Touch',
+      cmd: './contact --send',
       email: 'email',
       phone: 'phone',
       location: 'location',
@@ -116,6 +144,9 @@ const T = {
       successTitle: 'message sent — exit 0',
       successBody: "Thanks for reaching out. I'll get back to you soon.",
       sendAnother: 'send another',
+    },
+    footer: {
+      name: '© 2026 Harikrishnan P',
     },
     palette: {
       placeholder: 'type a command…',
@@ -149,6 +180,7 @@ const T = {
     },
     hero: {
       status: '面白い課題を探しています — 東京、日本',
+      nameKana: 'ハリクリシュナン・P',
       roles: ['AIソフトウェア開発者', 'RAGエンジニア', 'フルスタック開発者', 'MLシステム構築者'],
       pitch:
         '株式会社サードウェーブグループ（東京）で、RAGパイプラインやLLMを活用したアプリケーションを開発しています。Webからモバイルまでのフルスタック経験を持ち、「実際に届くAIシステム」を作ることにこだわっています。',
@@ -156,9 +188,20 @@ const T = {
       downloadCv: '履歴書をダウンロード',
       kbdPre: '',
       kbdPost: 'でナビゲート',
+      termTitle: 'hari@サードウェーブ — zsh',
+      script: [
+        { type: 'cmd', text: 'whoami' },
+        { type: 'out', text: 'ハリクリシュナン・P — AIソフトウェア開発者 @ 株式会社サードウェーブグループ 🇯🇵' },
+        { type: 'cmd', text: 'cat ./いまの注力分野', pause: 500 },
+        { type: 'out', text: '▸ RAGパイプライン · LLMワークフロー · 本番AIシステム' },
+        { type: 'cmd', text: 'cat ./経歴まとめ', pause: 500 },
+        { type: 'out', text: '2025年〜 東京でAI開発 · プロジェクト6件 · 資格・実績16件' },
+      ],
     },
     about: {
       title: '自己紹介',
+      cmd: 'cat ./自己紹介.md',
+      modulesCmd: 'ls ./できること',
       p1: [
         '',
         '株式会社サードウェーブグループ（東京）',
@@ -166,6 +209,11 @@ const T = {
       ],
       p2: '東京に来る前は、MSECで情報技術の学士号（B.Tech）を取得。ソフトウェア開発とネットワークのインターンシップを経験し、学生時代から実在の組織のためにプロダクトを開発・納品してきました。',
       trustedBy: '信頼いただいている組織',
+      moduleNames: {
+        'ai.development': 'AI開発',
+        'web.development': 'Web開発',
+        'mobile.apps': 'モバイルアプリ開発',
+      },
       modules: {
         'ai.development': '大規模言語モデルを活用したRAGパイプラインとインテリジェントなアプリケーションの構築。',
         'web.development': '高速・レスポンシブでスケーラブルなWebアプリケーションをプロフェッショナル水準で開発。',
@@ -174,6 +222,7 @@ const T = {
     },
     projects: {
       title: '制作実績',
+      cmd: 'ls ./プロジェクト --絞り込み=',
       filters: { all: 'すべて', web: 'Web', mobile: 'モバイル' },
       desc: {
         adminxpert: '学校運営の日常業務を支える、カスタムワークフロー付き管理プラットフォーム。',
@@ -186,6 +235,8 @@ const T = {
     },
     experience: {
       title: '職務経歴',
+      cmd: 'cat ./職務経歴.log',
+      eduCmd: 'cat ./学歴.log',
       current: '現職',
       items: {
         'Thirdwave Corporation': {
@@ -199,6 +250,7 @@ const T = {
           ],
         },
         'The Nest School': {
+          company: 'The Nest School（ザ・ネスト・スクール）',
           role: 'ソフトウェア開発インターン',
           place: 'チェンナイ、インド',
           points: [
@@ -208,6 +260,7 @@ const T = {
           ],
         },
         'Eagle-Tech IT Solutions': {
+          company: 'Eagle-Tech ITソリューションズ',
           role: 'ネットワークインターン',
           place: 'チェンナイ、インド',
           points: [
@@ -225,21 +278,29 @@ const T = {
     },
     skills: {
       title: 'スキル',
+      cmd: 'ls ./スキル一覧',
       groups: {
-        'ai & ml': 'AI & ML',
-        languages: '言語',
+        'ai & ml': 'AI・機械学習',
+        languages: 'プログラミング言語',
         frontend: 'フロントエンド',
-        'backend & db': 'バックエンド & DB',
-        'mobile & tools': 'モバイル & ツール',
+        'backend & db': 'バックエンド・DB',
+        'mobile & tools': 'モバイル・ツール',
       },
     },
     credentials: {
       title: '資格・実績',
+      cmds: { achievements: 'open ./実績', certifications: 'open ./資格' },
       achievements: '実績',
       certifications: '資格',
+      filePrefix: { achievements: '実績', certifications: '資格' },
+    },
+    carousel: {
+      preview: 'プレビュー',
+      auto: '自動再生',
     },
     contact: {
       title: 'お問い合わせ',
+      cmd: './お問い合わせ --送信',
       email: 'メール',
       phone: '電話',
       location: '所在地',
@@ -251,9 +312,12 @@ const T = {
       send: '送信する',
       sending: '送信中…',
       error: 'エラー：送信に失敗しました。もう一度お試しください。',
-      successTitle: 'message sent — exit 0',
+      successTitle: '送信完了 — exit 0',
       successBody: 'お問い合わせありがとうございます。できるだけ早くご返信いたします。',
       sendAnother: 'もう一度送信する',
+    },
+    footer: {
+      name: '© 2026 ハリクリシュナン・P',
     },
     palette: {
       placeholder: 'コマンドを入力…',

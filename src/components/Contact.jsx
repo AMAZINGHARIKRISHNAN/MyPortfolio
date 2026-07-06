@@ -76,7 +76,7 @@ export default function Contact() {
     'w-full bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-lime-400/60 transition-colors'
 
   return (
-    <Section id="contact" cmd="./contact --send" title={t.contact.title}>
+    <Section id="contact" cmd={t.contact.cmd} title={t.contact.title}>
       <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16">
 
         {/* Left: channels */}

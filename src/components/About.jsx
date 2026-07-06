@@ -17,7 +17,7 @@ export default function About() {
   const t = useT()
 
   return (
-    <Section id="about" cmd="cat ./about.md" title={t.about.title}>
+    <Section id="about" cmd={t.about.cmd} title={t.about.title}>
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
         <div>
@@ -58,7 +58,7 @@ export default function About() {
 
         <div className="space-y-3">
           <p className="font-mono text-xs text-zinc-500">
-            <span className="text-lime-400">$</span> modules --loaded
+            <span className="text-lime-400">$</span> {t.about.modulesCmd}
           </p>
           {modules.map((m) => (
             <div
@@ -69,7 +69,7 @@ export default function About() {
                 <m.icon size={19} className="text-lime-400" />
               </div>
               <div>
-                <h3 className="font-mono font-bold text-zinc-100 text-sm">{m.name}</h3>
+                <h3 className="font-mono font-bold text-zinc-100 text-sm">{t.about.moduleNames[m.name]}</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mt-1">{t.about.modules[m.name]}</p>
               </div>
             </div>

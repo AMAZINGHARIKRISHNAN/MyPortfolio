@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useT } from '../i18n'
 
 const variants = {
   enter: (dir) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
@@ -9,6 +10,7 @@ const variants = {
 }
 
 export default function Carousel({ items, altPrefix = 'Slide' }) {
+  const t = useT()
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(1)
   const [paused, setPaused] = useState(false)
@@ -56,12 +58,12 @@ export default function Carousel({ items, altPrefix = 'Slide' }) {
       {/* window bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-zinc-800 bg-zinc-900/60 flex-shrink-0">
         <span className="font-mono text-xs text-zinc-500">
-          {altPrefix.toLowerCase()}-{current + 1}.png — preview
+          {altPrefix.toLowerCase()}-{current + 1}.png — {t.carousel.preview}
         </span>
         {!paused && (
           <span className="flex items-center gap-1.5 font-mono text-[11px] text-zinc-500">
             <span className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse" />
-            auto
+            {t.carousel.auto}
           </span>
         )}
       </div>

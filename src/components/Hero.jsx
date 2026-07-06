@@ -5,28 +5,21 @@ import { useTypewriter } from '../hooks/useTypewriter'
 import { RESUME } from '../data'
 import { useT } from '../i18n'
 
-const SCRIPT = [
-  { type: 'cmd', text: 'whoami' },
-  { type: 'out', text: 'Harikrishnan P — AI Software Developer @ Thirdwave Corporation 🇯🇵' },
-  { type: 'cmd', text: 'cat ./current-focus', pause: 500 },
-  { type: 'out', text: '▸ RAG pipelines · LLM workflows · production AI systems' },
-  { type: 'cmd', text: 'uptime --career', pause: 500 },
-  { type: 'out', text: 'AI dev @ Tokyo since 2025 · 6 shipped projects · 15 credentials' },
-]
-
-// Reveals SCRIPT one character at a time: commands type slowly,
-// output streams fast like model tokens
-function useTerminalScript() {
+// Reveals the script one character at a time: commands type slowly,
+// output streams fast like model tokens. Restarts when the script
+// (i.e. the language) changes.
+function useTerminalScript(script) {
   const [pos, setPos] = useState({ line: 0, char: 0, done: false })
 
   useEffect(() => {
     let cancelled = false
     let line = 0
     let char = 0
+    setPos({ line: 0, char: 0, done: false })
 
     const tick = () => {
       if (cancelled) return
-      const current = SCRIPT[line]
+      const current = script[line]
       if (!current) {
         setPos({ line, char: 0, done: true })
         return
@@ -38,7 +31,7 @@ function useTerminalScript() {
       } else {
         line++
         char = 0
-        setTimeout(tick, SCRIPT[line]?.pause ?? 260)
+        setTimeout(tick, script[line]?.pause ?? 260)
       }
     }
 
@@ -47,7 +40,7 @@ function useTerminalScript() {
       cancelled = true
       clearTimeout(start)
     }
-  }, [])
+  }, [script])
 
   return pos
 }
@@ -66,7 +59,8 @@ function TerminalLine({ line, text }) {
 export default function Hero() {
   const t = useT()
   const role = useTypewriter(t.hero.roles)
-  const pos = useTerminalScript()
+  const SCRIPT = t.hero.script
+  const pos = useTerminalScript(SCRIPT)
 
   return (
     <div className="hero-glow">
@@ -88,6 +82,10 @@ export default function Hero() {
             <br />
             KRISHNAN<span className="text-lime-400">_</span>P
           </h1>
+
+          {t.hero.nameKana && (
+            <p className="font-mono text-sm text-zinc-500 mt-3 tracking-widest">{t.hero.nameKana}</p>
+          )}
 
           <p className="font-mono text-sm md:text-base text-zinc-500 mt-6 h-6">
             <span className="text-zinc-600">{'// '}</span>
@@ -127,7 +125,7 @@ export default function Hero() {
               <span className="w-3 h-3 rounded-full bg-red-500/70" />
               <span className="w-3 h-3 rounded-full bg-amber-500/70" />
               <span className="w-3 h-3 rounded-full bg-lime-500/70" />
-              <span className="font-mono text-xs text-zinc-500 ml-3">hari@thirdwave — zsh</span>
+              <span className="font-mono text-xs text-zinc-500 ml-3">{t.hero.termTitle}</span>
             </div>
             <div className="scanlines p-5 md:p-6 font-mono text-[13px] md:text-sm leading-relaxed min-h-[280px]">
               {SCRIPT.slice(0, pos.line).map((l, i) => (

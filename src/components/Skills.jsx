@@ -62,7 +62,7 @@ const groups = [
 export default function Skills() {
   const t = useT()
   return (
-    <Section id="skills" cmd="pkg list --installed" title={t.skills.title}>
+    <Section id="skills" cmd={t.skills.cmd} title={t.skills.title}>
       <div className="space-y-8">
         {groups.map((g) => (
           <div key={g.label}>

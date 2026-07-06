@@ -7,7 +7,7 @@ export default function Experience() {
   const t = useT()
 
   return (
-    <Section id="experience" cmd="cat ./experience.log" title={t.experience.title}>
+    <Section id="experience" cmd={t.experience.cmd} title={t.experience.title}>
       <div className="space-y-4">
         {experience.map((job, i) => {
           const tr = t.experience.items[job.company] ?? job
@@ -57,7 +57,7 @@ export default function Experience() {
       </div>
 
       <p className="font-mono text-xs text-zinc-500 mt-12 mb-4">
-        <span className="text-lime-400">$</span> cat ./education.log
+        <span className="text-lime-400">$</span> {t.experience.eduCmd}
       </p>
       <div className="grid md:grid-cols-3 gap-4">
         {education.map((e) => (
