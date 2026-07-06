@@ -1,22 +1,11 @@
 import { BrainCircuit, Globe, Smartphone } from 'lucide-react'
 import Section from './Section'
+import { useT } from '../i18n'
 
 const modules = [
-  {
-    icon: BrainCircuit,
-    name: 'ai.development',
-    desc: 'RAG pipelines and intelligent applications powered by large language models.',
-  },
-  {
-    icon: Globe,
-    name: 'web.development',
-    desc: 'Fast, responsive, scalable web applications built at a professional level.',
-  },
-  {
-    icon: Smartphone,
-    name: 'mobile.apps',
-    desc: 'Cross-platform mobile applications with clean UI and smooth UX.',
-  },
+  { icon: BrainCircuit, name: 'ai.development' },
+  { icon: Globe, name: 'web.development' },
+  { icon: Smartphone, name: 'mobile.apps' },
 ]
 
 const clients = [
@@ -25,27 +14,25 @@ const clients = [
 ]
 
 export default function About() {
+  const t = useT()
+
   return (
-    <Section id="about" cmd="cat ./about.md" title="About">
+    <Section id="about" cmd="cat ./about.md" title={t.about.title}>
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
         <div>
           <p className="text-zinc-400 leading-relaxed text-sm md:text-base">
-            I'm an AI Software Developer at{' '}
-            <span className="text-lime-400 font-medium">Thirdwave Corporation, Tokyo</span>, where I
-            work on Retrieval-Augmented Generation systems and intelligent applications. With
-            hands-on experience across AI, web, and mobile, I specialize in building solutions
-            that are technically robust and genuinely pleasant to use.
+            {t.about.p1[0]}
+            <span className="text-lime-400 font-medium">{t.about.p1[1]}</span>
+            {t.about.p1[2]}
           </p>
           <p className="text-zinc-400 leading-relaxed text-sm md:text-base mt-4">
-            Before Tokyo: a B.Tech in Information Technology from MSEC, internships in software
-            development and networking, and real products shipped for real organizations while
-            still a student.
+            {t.about.p2}
           </p>
 
           <div className="mt-8">
             <p className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-4">
-              trusted by
+              {t.about.trustedBy}
             </p>
             <div className="flex gap-4">
               {clients.map((c) => (
@@ -83,7 +70,7 @@ export default function About() {
               </div>
               <div>
                 <h3 className="font-mono font-bold text-zinc-100 text-sm">{m.name}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mt-1">{m.desc}</p>
+                <p className="text-zinc-400 text-sm leading-relaxed mt-1">{t.about.modules[m.name]}</p>
               </div>
             </div>
           ))}

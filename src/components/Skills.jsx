@@ -7,6 +7,7 @@ import {
 import { FaJava } from 'react-icons/fa'
 import { BrainCircuit, Database, Wand2 } from 'lucide-react'
 import Section from './Section'
+import { useT } from '../i18n'
 
 const groups = [
   {
@@ -59,13 +60,14 @@ const groups = [
 ]
 
 export default function Skills() {
+  const t = useT()
   return (
-    <Section id="skills" cmd="pkg list --installed" title="Skills">
+    <Section id="skills" cmd="pkg list --installed" title={t.skills.title}>
       <div className="space-y-8">
         {groups.map((g) => (
           <div key={g.label}>
             <p className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-3">
-              # {g.label}
+              # {t.skills.groups[g.label] ?? g.label}
             </p>
             <div className="flex flex-wrap gap-2">
               {g.skills.map(({ name, icon: Icon, color }) => (

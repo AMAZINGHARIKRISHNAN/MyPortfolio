@@ -2,28 +2,28 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Hash, FileDown, Copy, Github, Linkedin, CornerDownLeft } from 'lucide-react'
 import { EMAIL, GITHUB, LINKEDIN, RESUME } from '../data'
+import { useT } from '../i18n'
 
 const goto = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
-const ACTIONS = [
-  { id: 'about', label: 'go to: about', icon: Hash, run: () => goto('about') },
-  { id: 'projects', label: 'go to: projects', icon: Hash, run: () => goto('projects') },
-  { id: 'experience', label: 'go to: experience', icon: Hash, run: () => goto('experience') },
-  { id: 'skills', label: 'go to: skills', icon: Hash, run: () => goto('skills') },
-  { id: 'credentials', label: 'go to: credentials', icon: Hash, run: () => goto('credentials') },
-  { id: 'contact', label: 'go to: contact', icon: Hash, run: () => goto('contact') },
-  { id: 'cv', label: 'download cv', icon: FileDown, run: () => window.open(RESUME, '_blank') },
-  { id: 'email', label: 'copy email address', icon: Copy, run: () => navigator.clipboard.writeText(EMAIL) },
-  { id: 'github', label: 'open github', icon: Github, run: () => window.open(GITHUB, '_blank') },
-  { id: 'linkedin', label: 'open linkedin', icon: Linkedin, run: () => window.open(LINKEDIN, '_blank') },
-]
+const SECTIONS = ['about', 'projects', 'experience', 'skills', 'credentials', 'contact']
 
 export default function CommandPalette({ open, setOpen }) {
+  const t = useT()
   const [query, setQuery] = useState('')
   const [index, setIndex] = useState(0)
   const inputRef = useRef(null)
 
-  const results = ACTIONS.filter((a) => a.label.includes(query.toLowerCase().trim()))
+  const actions = [
+    ...SECTIONS.map((id) => ({ id, label: t.palette.goto[id], icon: Hash, run: () => goto(id) })),
+    { id: 'cv', label: t.palette.cv, icon: FileDown, run: () => window.open(RESUME, '_blank') },
+    { id: 'email', label: t.palette.email, icon: Copy, run: () => navigator.clipboard.writeText(EMAIL) },
+    { id: 'github', label: t.palette.github, icon: Github, run: () => window.open(GITHUB, '_blank') },
+    { id: 'linkedin', label: t.palette.linkedin, icon: Linkedin, run: () => window.open(LINKEDIN, '_blank') },
+  ]
+
+  const q = query.toLowerCase().trim()
+  const results = actions.filter((a) => a.label.toLowerCase().includes(q) || a.id.includes(q))
 
   // Global shortcut + reset on open
   useEffect(() => {
@@ -92,14 +92,14 @@ export default function CommandPalette({ open, setOpen }) {
                   setIndex(0)
                 }}
                 onKeyDown={onInputKey}
-                placeholder="type a command…"
+                placeholder={t.palette.placeholder}
                 className="w-full bg-transparent py-3.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none"
               />
             </div>
 
             <ul className="max-h-72 overflow-y-auto py-2">
               {results.length === 0 && (
-                <li className="px-4 py-3 text-sm text-zinc-600">command not found: {query}</li>
+                <li className="px-4 py-3 text-sm text-zinc-600">{t.palette.notFound} {query}</li>
               )}
               {results.map((a, i) => (
                 <li key={a.id}>
@@ -119,9 +119,9 @@ export default function CommandPalette({ open, setOpen }) {
             </ul>
 
             <div className="px-4 py-2 border-t border-zinc-800 text-[11px] text-zinc-600 flex gap-4">
-              <span>↑↓ navigate</span>
-              <span>↵ run</span>
-              <span>esc close</span>
+              <span>{t.palette.hintNav}</span>
+              <span>{t.palette.hintRun}</span>
+              <span>{t.palette.hintClose}</span>
             </div>
           </motion.div>
         </motion.div>

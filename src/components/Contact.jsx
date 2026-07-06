@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Send, CheckCircle, RotateCcw, Mail, MapPin, Clock, Copy, Check, Github, Linkedin, Phone } from 'lucide-react'
 import Section from './Section'
 import { EMAIL, GITHUB, LINKEDIN } from '../data'
+import { useT } from '../i18n'
 
 function useTokyoTime() {
   const [time, setTime] = useState('')
@@ -36,6 +37,7 @@ function InfoRow({ icon: Icon, label, children }) {
 }
 
 export default function Contact() {
+  const t = useT()
   const [form, setForm] = useState({ fullname: '', email: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | loading | success | error
   const [copied, setCopied] = useState(false)
@@ -74,12 +76,12 @@ export default function Contact() {
     'w-full bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-lime-400/60 transition-colors'
 
   return (
-    <Section id="contact" cmd="./contact --send" title="Get In Touch">
+    <Section id="contact" cmd="./contact --send" title={t.contact.title}>
       <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16">
 
         {/* Left: channels */}
         <div className="space-y-6">
-          <InfoRow icon={Mail} label="email">
+          <InfoRow icon={Mail} label={t.contact.email}>
             <span className="flex items-center gap-2">
               <span className="truncate">{EMAIL}</span>
               <button onClick={copyEmail} title="Copy" className="text-zinc-500 hover:text-lime-400 transition-colors flex-shrink-0">
@@ -88,15 +90,15 @@ export default function Contact() {
             </span>
           </InfoRow>
 
-          <InfoRow icon={Phone} label="phone">
+          <InfoRow icon={Phone} label={t.contact.phone}>
             <a href="tel:+918072324813" className="hover:text-lime-400 transition-colors">+91 8072324813</a>
           </InfoRow>
 
-          <InfoRow icon={MapPin} label="location">
-            Tokyo, Japan 🇯🇵
+          <InfoRow icon={MapPin} label={t.contact.location}>
+            {t.contact.locationValue}
           </InfoRow>
 
-          <InfoRow icon={Clock} label="local time">
+          <InfoRow icon={Clock} label={t.contact.localTime}>
             <span className="font-mono tabular-nums">{tokyoTime} JST</span>
           </InfoRow>
 
@@ -125,14 +127,14 @@ export default function Contact() {
             >
               <CheckCircle size={40} className="text-lime-400" />
               <div>
-                <h3 className="font-mono font-bold text-zinc-100 text-lg">message sent — exit 0</h3>
-                <p className="text-zinc-400 text-sm mt-2">Thanks for reaching out. I'll get back to you soon.</p>
+                <h3 className="font-mono font-bold text-zinc-100 text-lg">{t.contact.successTitle}</h3>
+                <p className="text-zinc-400 text-sm mt-2">{t.contact.successBody}</p>
               </div>
               <button
                 onClick={() => setStatus('idle')}
                 className="flex items-center gap-2 font-mono text-sm px-5 py-2.5 rounded-lg border border-zinc-700 text-zinc-400 hover:text-zinc-100 hover:border-zinc-500 transition-colors"
               >
-                <RotateCcw size={14} /> send another
+                <RotateCcw size={14} /> {t.contact.sendAnother}
               </button>
             </motion.div>
           ) : (
@@ -145,13 +147,13 @@ export default function Contact() {
               className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6 md:p-8 space-y-4"
             >
               <div className="grid sm:grid-cols-2 gap-4">
-                <input type="text" name="fullname" placeholder="full name" value={form.fullname} onChange={handleChange} required className={inputCls} />
-                <input type="email" name="email" placeholder="email address" value={form.email} onChange={handleChange} required className={inputCls} />
+                <input type="text" name="fullname" placeholder={t.contact.fullname} value={form.fullname} onChange={handleChange} required className={inputCls} />
+                <input type="email" name="email" placeholder={t.contact.emailPh} value={form.email} onChange={handleChange} required className={inputCls} />
               </div>
-              <textarea name="message" placeholder="your message…" value={form.message} onChange={handleChange} required rows={6} className={`${inputCls} resize-none`} />
+              <textarea name="message" placeholder={t.contact.messagePh} value={form.message} onChange={handleChange} required rows={6} className={`${inputCls} resize-none`} />
 
               {status === 'error' && (
-                <p className="font-mono text-sm text-red-400">error: something went wrong — try again</p>
+                <p className="font-mono text-sm text-red-400">{t.contact.error}</p>
               )}
 
               <button
@@ -160,7 +162,7 @@ export default function Contact() {
                 className="inline-flex items-center gap-2 font-mono font-bold text-sm px-6 py-3 rounded-lg bg-lime-400 text-zinc-950 hover:bg-lime-300 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 <Send size={15} />
-                {status === 'loading' ? 'sending…' : 'send message'}
+                {status === 'loading' ? t.contact.sending : t.contact.send}
               </button>
             </motion.form>
           )}

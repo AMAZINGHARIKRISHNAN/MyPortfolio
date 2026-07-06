@@ -92,3 +92,14 @@ body::before {
   outline: 2px solid #a3e635;
   outline-offset: 2px;
 }
+
+/* Japanese glyph fallbacks — JetBrains Mono / Space Grotesk have no kana/kanji */
+html[lang='ja'] body {
+  font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+}
+html[lang='ja'] .font-mono {
+  font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+}
+html[lang='ja'] .font-sans {
+  font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+}

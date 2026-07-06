@@ -3,15 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
 import Section from './Section'
 import { projects } from '../data'
+import { useT } from '../i18n'
 
 const filters = ['all', 'web', 'mobile']
 
 export default function Projects() {
+  const t = useT()
   const [active, setActive] = useState('all')
   const filtered = active === 'all' ? projects : projects.filter((p) => p.category === active)
 
   return (
-    <Section id="projects" cmd={`ls ./projects --filter=${active}`} title="Selected Work">
+    <Section id="projects" cmd={`ls ./projects --filter=${active}`} title={t.projects.title}>
       <div className="flex gap-2 mb-8 font-mono text-sm">
         {filters.map((f) => (
           <button
@@ -23,7 +25,7 @@ export default function Projects() {
                 : 'border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:border-zinc-600'
             }`}
           >
-            {f}
+            {t.projects.filters[f]}
           </button>
         ))}
       </div>
@@ -77,7 +79,7 @@ export default function Projects() {
 
               <div className="p-5">
                 <h3 className="font-mono font-bold text-zinc-100 text-base">{p.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mt-2">{p.desc}</p>
+                <p className="text-zinc-400 text-sm leading-relaxed mt-2">{t.projects.desc[p.id] ?? p.desc}</p>
                 <div className="flex flex-wrap gap-1.5 mt-4">
                   {p.tech.map((t) => (
                     <span key={t} className="font-mono text-[11px] px-2 py-1 rounded bg-lime-400/10 text-lime-400/90 border border-lime-400/15">

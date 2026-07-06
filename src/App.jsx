@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { LangProvider } from './i18n'
 import Nav from './components/Nav'
 import CommandPalette from './components/CommandPalette'
 import Hero from './components/Hero'
@@ -14,22 +15,24 @@ export default function App() {
   const [paletteOpen, setPaletteOpen] = useState(false)
 
   return (
-    <div id="top">
-      <Nav onOpenPalette={() => setPaletteOpen(true)} />
-      <CommandPalette open={paletteOpen} setOpen={setPaletteOpen} />
+    <LangProvider>
+      <div id="top">
+        <Nav onOpenPalette={() => setPaletteOpen(true)} />
+        <CommandPalette open={paletteOpen} setOpen={setPaletteOpen} />
 
-      <Hero />
+        <Hero />
 
-      <main className="max-w-6xl mx-auto px-5 md:px-8">
-        <About />
-        <Projects />
-        <Experience />
-        <Skills />
-        <Credentials />
-        <Contact />
-      </main>
+        <main className="max-w-6xl mx-auto px-5 md:px-8">
+          <About />
+          <Projects />
+          <Experience />
+          <Skills />
+          <Credentials />
+          <Contact />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LangProvider>
   )
 }

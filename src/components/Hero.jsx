@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown, FileDown } from 'lucide-react'
 import { useTypewriter } from '../hooks/useTypewriter'
-import { ROLES, RESUME } from '../data'
+import { RESUME } from '../data'
+import { useT } from '../i18n'
 
 const SCRIPT = [
   { type: 'cmd', text: 'whoami' },
@@ -63,7 +64,8 @@ function TerminalLine({ line, text }) {
 }
 
 export default function Hero() {
-  const role = useTypewriter(ROLES)
+  const t = useT()
+  const role = useTypewriter(t.hero.roles)
   const pos = useTerminalScript()
 
   return (
@@ -78,7 +80,7 @@ export default function Hero() {
         >
           <p className="font-mono text-xs md:text-sm text-lime-400 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse" />
-            open to interesting problems — tokyo, japan
+            {t.hero.status}
           </p>
 
           <h1 className="font-mono font-extrabold text-zinc-50 tracking-tighter leading-none mt-6 text-[13vw] sm:text-6xl xl:text-7xl">
@@ -94,9 +96,7 @@ export default function Hero() {
           </p>
 
           <p className="text-zinc-400 leading-relaxed max-w-md mt-6 text-sm md:text-base">
-            I build AI systems that ship — Retrieval-Augmented Generation pipelines and
-            LLM-powered applications at Thirdwave Corporation, with a full-stack
-            background across web and mobile.
+            {t.hero.pitch}
           </p>
 
           <div className="flex flex-wrap gap-3 mt-9 font-mono text-sm">
@@ -104,14 +104,14 @@ export default function Hero() {
               href="#projects"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-lime-400 text-zinc-950 font-bold hover:bg-lime-300 transition-colors"
             >
-              view work <ArrowDown size={15} />
+              {t.hero.viewWork} <ArrowDown size={15} />
             </a>
             <a
               href={RESUME}
               download
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-zinc-700 text-zinc-300 hover:border-lime-400/60 hover:text-lime-400 transition-colors"
             >
-              <FileDown size={15} /> download cv
+              <FileDown size={15} /> {t.hero.downloadCv}
             </a>
           </div>
         </motion.div>
@@ -145,8 +145,10 @@ export default function Hero() {
             </div>
           </div>
           <p className="hidden md:block font-mono text-[11px] text-zinc-600 text-center mt-4">
-            press <kbd className="px-1.5 py-0.5 rounded border border-zinc-700 text-zinc-400">ctrl</kbd>{' '}
-            + <kbd className="px-1.5 py-0.5 rounded border border-zinc-700 text-zinc-400">k</kbd> to navigate
+            {t.hero.kbdPre && `${t.hero.kbdPre} `}
+            <kbd className="px-1.5 py-0.5 rounded border border-zinc-700 text-zinc-400">ctrl</kbd>{' '}
+            + <kbd className="px-1.5 py-0.5 rounded border border-zinc-700 text-zinc-400">k</kbd>{' '}
+            {t.hero.kbdPost}
           </p>
         </motion.div>
 
