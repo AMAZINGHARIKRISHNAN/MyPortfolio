@@ -52,6 +52,7 @@ export const projects = [
     title: 'Service Register',
     category: 'web',
     image: '/assets/images/projects/serviceregister.webp',
+    fit: 'contain',
     desc: 'Digital service registration and tracking system for operational management.',
     tech: ['html5', 'css3', 'javascript'],
     github: '#',
