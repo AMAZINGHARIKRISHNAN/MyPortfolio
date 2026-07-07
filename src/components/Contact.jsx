@@ -91,7 +91,10 @@ export default function Contact() {
           </InfoRow>
 
           <InfoRow icon={Phone} label={t.contact.phone}>
-            <a href="tel:+918072324813" className="hover:text-lime-400 transition-colors">+91 8072324813</a>
+            <span className="flex flex-col gap-0.5">
+              <a href="tel:+817094531117" className="hover:text-lime-400 transition-colors">🇯🇵 +81 70-9453-1117</a>
+              <a href="tel:+918072324813" className="hover:text-lime-400 transition-colors">🇮🇳 +91 80723-24813</a>
+            </span>
           </InfoRow>
 
           <InfoRow icon={MapPin} label={t.contact.location}>
