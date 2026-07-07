@@ -2,7 +2,7 @@ import {
   SiJavascript, SiPython, SiReact, SiHtml5, SiCss,
   SiTailwindcss, SiNodedotjs, SiFirebase, SiMysql,
   SiFlutter, SiGit, SiGithub, SiFigma, SiCanva,
-  SiLangchain, SiOpenai, SiC,
+  SiLangchain, SiOpenai, SiC, SiFastapi,
 } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 import { BrainCircuit, Database, Wand2 } from 'lucide-react'
@@ -43,6 +43,7 @@ const groups = [
     label: 'backend & db',
     skills: [
       { name: 'node.js', icon: SiNodedotjs, color: '#339933' },
+      { name: 'fastapi', icon: SiFastapi, color: '#059487' },
       { name: 'firebase', icon: SiFirebase, color: '#FFCA28' },
       { name: 'mysql', icon: SiMysql, color: '#4479A1' },
     ],

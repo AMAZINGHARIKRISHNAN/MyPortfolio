@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Hash, FileDown, Copy, Github, Linkedin, CornerDownLeft } from 'lucide-react'
-import { EMAIL, GITHUB, LINKEDIN, RESUME } from '../data'
+import { EMAIL, GITHUB, LINKEDIN } from '../data'
 import { useT } from '../i18n'
 
 const goto = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -16,7 +16,7 @@ export default function CommandPalette({ open, setOpen }) {
 
   const actions = [
     ...SECTIONS.map((id) => ({ id, label: t.palette.goto[id], icon: Hash, run: () => goto(id) })),
-    { id: 'cv', label: t.palette.cv, icon: FileDown, run: () => window.open(RESUME, '_blank') },
+    { id: 'cv', label: t.palette.cv, icon: FileDown, run: () => window.open(t.resume, '_blank') },
     { id: 'email', label: t.palette.email, icon: Copy, run: () => navigator.clipboard.writeText(EMAIL) },
     { id: 'github', label: t.palette.github, icon: Github, run: () => window.open(GITHUB, '_blank') },
     { id: 'linkedin', label: t.palette.linkedin, icon: Linkedin, run: () => window.open(LINKEDIN, '_blank') },

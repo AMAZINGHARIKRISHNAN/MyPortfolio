@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 
 const T = {
   en: {
+    resume: '/assets/P.HARIKRISHNAN Resume.pdf',
     nav: {
       about: 'about',
       projects: 'projects',
@@ -13,7 +14,7 @@ const T = {
     hero: {
       status: 'open to interesting problems — tokyo, japan',
       nameKana: '',
-      roles: ['AI Software Developer', 'RAG Engineer', 'Full Stack Developer', 'ML Systems Builder'],
+      roles: ['AI Application Engineer', 'RAG Engineer', 'Full Stack Developer', 'ML Systems Builder'],
       pitch:
         'I build AI systems that ship — Retrieval-Augmented Generation pipelines and LLM-powered applications at Thirdwave Corporation, with a full-stack background across web and mobile.',
       viewWork: 'view work',
@@ -23,7 +24,7 @@ const T = {
       termTitle: 'hari@thirdwave — zsh',
       script: [
         { type: 'cmd', text: 'whoami' },
-        { type: 'out', text: 'Harikrishnan P — AI Software Developer @ Thirdwave Corporation 🇯🇵' },
+        { type: 'out', text: 'Harikrishnan P — AI Application Engineer @ Thirdwave Corporation 🇯🇵' },
         { type: 'cmd', text: 'cat ./current-focus', pause: 500 },
         { type: 'out', text: '▸ RAG pipelines · LLM workflows · production AI systems' },
         { type: 'cmd', text: 'uptime --career', pause: 500 },
@@ -35,9 +36,9 @@ const T = {
       cmd: 'cat ./about.md',
       modulesCmd: 'modules --loaded',
       p1: [
-        "I'm an AI Software Developer at ",
+        "I'm an AI Application Engineer in the Digital Innovation Division at ",
         'Thirdwave Corporation, Tokyo',
-        ', where I work on Retrieval-Augmented Generation systems and intelligent applications. With hands-on experience across AI, web, and mobile, I specialize in building solutions that are technically robust and genuinely pleasant to use.',
+        ', where I build Retrieval-Augmented Generation systems and intelligent applications. With hands-on experience across AI, web, and mobile, I specialize in building solutions that are technically robust and genuinely pleasant to use.',
       ],
       p2: 'Before Tokyo: a B.Tech in Information Technology from MSEC, internships in software development and networking, and real products shipped for real organizations while still a student.',
       trustedBy: 'trusted by',
@@ -72,12 +73,12 @@ const T = {
       current: 'current',
       items: {
         'Thirdwave Corporation': {
-          role: 'AI Software Developer',
+          role: 'AI Application Engineer · Digital Innovation Div. 3',
           place: 'Tokyo, Japan 🇯🇵',
           points: [
-            'Building Retrieval-Augmented Generation (RAG) pipelines for intelligent document and knowledge retrieval.',
-            'Designing and integrating LLM-based workflows into production applications.',
-            'Collaborating with cross-functional teams in Japan on cutting-edge AI projects.',
+            'Built the internal regulations Q&A system — a RAG-powered AI chatbot for company-wide use (Dec 2025).',
+            'Developing a file management system PoC for internal operations (Jun 2026 — present).',
+            'Seconded to Computer Science Laboratory (Kitakyushu) to build the Android version of the "Eye Navi" navigation app (Jul–Sep 2026).',
           ],
         },
         'The Nest School': {
@@ -170,6 +171,7 @@ const T = {
   },
 
   ja: {
+    resume: '/assets/Harikrishnan_Rirekisho.pdf',
     nav: {
       about: '自己紹介',
       projects: 'プロジェクト',
@@ -181,7 +183,7 @@ const T = {
     hero: {
       status: '面白い課題を探しています — 東京、日本',
       nameKana: 'ハリクリシュナン・P',
-      roles: ['AIソフトウェア開発者', 'RAGエンジニア', 'フルスタック開発者', 'MLシステム構築者'],
+      roles: ['AIアプリケーションエンジニア', 'RAGエンジニア', 'フルスタック開発者', 'MLシステム構築者'],
       pitch:
         '株式会社サードウェーブグループ（東京）で、RAGパイプラインやLLMを活用したアプリケーションを開発しています。Webからモバイルまでのフルスタック経験を持ち、「実際に届くAIシステム」を作ることにこだわっています。',
       viewWork: '作品を見る',
@@ -191,7 +193,7 @@ const T = {
       termTitle: 'hari@サードウェーブ — zsh',
       script: [
         { type: 'cmd', text: 'whoami' },
-        { type: 'out', text: 'ハリクリシュナン・P — AIソフトウェア開発者 @ 株式会社サードウェーブグループ 🇯🇵' },
+        { type: 'out', text: 'ハリクリシュナン・P — AIアプリケーションエンジニア @ 株式会社サードウェーブグループ 🇯🇵' },
         { type: 'cmd', text: 'cat ./いまの注力分野', pause: 500 },
         { type: 'out', text: '▸ RAGパイプライン · LLMワークフロー · 本番AIシステム' },
         { type: 'cmd', text: 'cat ./経歴まとめ', pause: 500 },
@@ -205,7 +207,7 @@ const T = {
       p1: [
         '',
         '株式会社サードウェーブグループ（東京）',
-        'のAIソフトウェア開発者として、RAG（検索拡張生成）システムとインテリジェントなアプリケーションの開発に携わっています。AI・Web・モバイル領域での実践経験を活かし、技術的に堅牢で、使っていて心地よいソリューションづくりを得意としています。',
+        'のデジタルイノベーション部で、AIアプリケーションエンジニアとしてRAG（検索拡張生成）システムやインテリジェントなアプリケーションの開発に携わっています。AI・Web・モバイル領域での実務経験を活かし、技術力と使いやすさを両立したソリューションの構築を得意としています。',
       ],
       p2: '東京に来る前は、MSECで情報技術の学士号（B.Tech）を取得。ソフトウェア開発とネットワークのインターンシップを経験し、学生時代から実在の組織のためにプロダクトを開発・納品してきました。',
       trustedBy: '信頼いただいている組織',
@@ -241,12 +243,12 @@ const T = {
       items: {
         'Thirdwave Corporation': {
           company: '株式会社サードウェーブグループ',
-          role: 'AIソフトウェア開発者',
+          role: 'AIアプリケーションエンジニア · デジタルイノベーション３部',
           place: '東京、日本 🇯🇵',
           points: [
-            'ドキュメントやナレッジの高度な検索を実現するRAG（検索拡張生成）パイプラインの構築。',
-            'LLMベースのワークフローを本番アプリケーションへ設計・統合。',
-            '日本の部門横断チームと最先端AIプロジェクトで協働。',
+            '「社内規定QAシステム」を開発 — RAGを活用した社内向けAIチャットボット（2025年12月）。',
+            '「ファイル管理システム（PoC）」を開発中（2026年6月〜現在）。',
+            '株式会社コンピュータサイエンス研究所（北九州市）に出向し、iOSナビアプリ「Eye Navi」のAndroid版開発を担当（2026年7月〜9月）。',
           ],
         },
         'The Nest School': {

@@ -1,6 +1,6 @@
 # Harikrishnan P — Portfolio
 
-Personal portfolio of **Harikrishnan P**, AI Software Developer at Thirdwave Corporation, Japan.
+Personal portfolio of **Harikrishnan P**, AI Application Engineer at Thirdwave Corporation, Japan.
 
 **Live site:** https://harikrishnanportfolio.web.app
 

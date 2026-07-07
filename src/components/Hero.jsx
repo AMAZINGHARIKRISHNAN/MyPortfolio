@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown, FileDown } from 'lucide-react'
 import { useTypewriter } from '../hooks/useTypewriter'
-import { RESUME } from '../data'
 import { useT } from '../i18n'
 
 // Reveals the script one character at a time: commands type slowly,
@@ -105,7 +104,7 @@ export default function Hero() {
               {t.hero.viewWork} <ArrowDown size={15} />
             </a>
             <a
-              href={RESUME}
+              href={t.resume}
               download
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-zinc-700 text-zinc-300 hover:border-lime-400/60 hover:text-lime-400 transition-colors"
             >

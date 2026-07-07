@@ -1,10 +1,6 @@
 export const EMAIL = 'harikrish18342@gmail.com'
 export const GITHUB = 'https://github.com/AMAZINGHARIKRISHNAN'
 export const LINKEDIN = 'https://www.linkedin.com/in/hari-krishnan-p-1854a51b2/'
-export const RESUME = '/assets/P.HARIKRISHNAN Resume.pdf'
-
-export const ROLES = ['AI Software Developer', 'RAG Engineer', 'Full Stack Developer', 'ML Systems Builder']
-
 export const projects = [
   {
     id: 'adminxpert',
@@ -74,14 +70,14 @@ export const projects = [
 export const experience = [
   {
     company: 'Thirdwave Corporation',
-    role: 'AI Software Developer',
+    role: 'AI Application Engineer · Digital Innovation Div. 3',
     place: 'Tokyo, Japan 🇯🇵',
     period: '2025 — present',
     current: true,
     points: [
-      'Building Retrieval-Augmented Generation (RAG) pipelines for intelligent document and knowledge retrieval.',
-      'Designing and integrating LLM-based workflows into production applications.',
-      'Collaborating with cross-functional teams in Japan on cutting-edge AI projects.',
+      'Built the internal regulations Q&A system — a RAG-powered AI chatbot for company-wide use (Dec 2025).',
+      'Developing a file management system PoC for internal operations (Jun 2026 — present).',
+      'Seconded to Computer Science Laboratory (Kitakyushu) to build the Android version of the "Eye Navi" navigation app (Jul–Sep 2026).',
     ],
   },
   {
