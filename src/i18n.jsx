@@ -28,7 +28,7 @@ const T = {
         { type: 'cmd', text: 'cat ./current-focus', pause: 500 },
         { type: 'out', text: '▸ RAG pipelines · LLM workflows · production AI systems' },
         { type: 'cmd', text: 'uptime --career', pause: 500 },
-        { type: 'out', text: 'AI dev @ Tokyo since 2025 · 9 projects · 16 credentials' },
+        { type: 'out', text: 'AI dev @ Tokyo since 2025 · 10 projects · 16 credentials' },
       ],
     },
     about: {
@@ -62,6 +62,7 @@ const T = {
       desc: {
         'regs-qa': 'RAG-powered internal AI chatbot answering questions about company regulations, used across Thirdwave (Dec 2025).',
         't-atlas': 'File management system for internal operations — proof of concept in active development (2026).',
+        digixcare: 'AI telemedicine app: CLIP image analysis + BioGPT symptom understanding, LLaMA consistency checks, and BioClinicalBERT severity triage — ~87% diagnosis accuracy.',
         eyenavi: 'Android version of the "Eye Navi" walking-navigation iOS app, built on secondment at Computer Science Laboratory, Kitakyushu.',
         adminxpert: 'Administrative management platform with custom workflows powering day-to-day school operations.',
         examcell: 'Examination cell management system used by Meenakshi Sundararajan Engineering College.',
@@ -202,7 +203,7 @@ const T = {
         { type: 'cmd', text: 'cat ./いまの注力分野', pause: 500 },
         { type: 'out', text: '▸ RAGパイプライン · LLMワークフロー · 本番AIシステム' },
         { type: 'cmd', text: 'cat ./経歴まとめ', pause: 500 },
-        { type: 'out', text: '2025年〜 東京でAI開発 · プロジェクト9件 · 資格・実績16件' },
+        { type: 'out', text: '2025年〜 東京でAI開発 · プロジェクト10件 · 資格・実績16件' },
       ],
     },
     about: {
@@ -240,6 +241,7 @@ const T = {
       desc: {
         'regs-qa': 'RAGを活用した社内向けAIチャットボット。社内規定に関する質問に回答（2025年12月）。',
         't-atlas': '社内業務向けファイル管理システムの概念実証（PoC）。現在開発中（2026年）。',
+        digixcare: 'AI遠隔医療アプリ。CLIPによる画像解析とBioGPTによる症状分析を組み合わせ、LLaMAで整合性を検証、BioClinicalBERTで重症度を分類（診断精度 約87%）。',
         eyenavi: '株式会社コンピュータサイエンス研究所（北九州市）への出向で担当する、iOSナビアプリ「Eye Navi」のAndroid版開発。',
         adminxpert: '学校運営の日常業務を支える、カスタムワークフロー付き管理プラットフォーム。',
         examcell: 'Meenakshi Sundararajan Engineering College で使用されている試験管理システム。',

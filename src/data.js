@@ -36,6 +36,16 @@ export const projects = [
     live: '#',
   },
   {
+    id: 'digixcare',
+    title: 'Digi-X-Care',
+    category: 'mobile',
+    image: '/assets/images/projects/digixcare.webp',
+    desc: 'AI telemedicine app: CLIP image analysis + BioGPT symptom understanding, LLaMA consistency checks, and BioClinicalBERT severity triage — ~87% diagnosis accuracy.',
+    tech: ['flutter', 'flask', 'clip', 'biogpt', 'llama'],
+    github: '#',
+    live: '#',
+  },
+  {
     id: 'adminxpert',
     title: "The Nest's AdminXpert",
     category: 'web',
