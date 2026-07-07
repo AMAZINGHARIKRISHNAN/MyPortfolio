@@ -49,6 +49,7 @@ export const projects = [
     id: 'nutrimate',
     title: 'Nutrimate',
     category: 'web',
+    fit: 'contain',
     image: '/assets/images/projects/nutrimate.webp',
     desc: 'Nutrition and fitness app: deep-learning food classifier (healthy/unhealthy), Groq-powered meal plans and chatbot, plus workout tutorials.',
     tech: ['python', 'streamlit', 'groq', 'deep-learning'],
