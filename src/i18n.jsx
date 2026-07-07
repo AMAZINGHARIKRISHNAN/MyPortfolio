@@ -61,7 +61,7 @@ const T = {
       titles: {},
       desc: {
         'regs-qa': 'RAG-powered internal AI chatbot answering questions about company regulations, used across Thirdwave (Dec 2025).',
-        filemgmt: 'Proof-of-concept file management system for internal operations — in active development (2026).',
+        't-atlas': 'File management system for internal operations — proof of concept in active development (2026).',
         eyenavi: 'Android version of the "Eye Navi" walking-navigation iOS app, built on secondment at Computer Science Laboratory, Kitakyushu.',
         adminxpert: 'Administrative management platform with custom workflows powering day-to-day school operations.',
         examcell: 'Examination cell management system used by Meenakshi Sundararajan Engineering College.',
@@ -82,7 +82,7 @@ const T = {
           place: 'Tokyo, Japan 🇯🇵',
           points: [
             'Built the internal regulations Q&A system — a RAG-powered AI chatbot for company-wide use (Dec 2025).',
-            'Developing a file management system PoC for internal operations (Jun 2026 — present).',
+            'Developing "T-ATLAS", a file management system PoC for internal operations (Jun 2026 — present).',
             'Seconded to Computer Science Laboratory (Kitakyushu) to build the Android version of the "Eye Navi" navigation app (Jul–Sep 2026).',
           ],
         },
@@ -234,12 +234,12 @@ const T = {
       workBadge: '実務',
       titles: {
         'regs-qa': '社内規定QAシステム',
-        filemgmt: 'ファイル管理システム（PoC）',
+        't-atlas': 'T-ATLAS',
         eyenavi: 'Eye Navi（Android版）',
       },
       desc: {
         'regs-qa': 'RAGを活用した社内向けAIチャットボット。社内規定に関する質問に回答（2025年12月）。',
-        filemgmt: '社内業務向けファイル管理システムの概念実証（PoC）。現在開発中（2026年）。',
+        't-atlas': '社内業務向けファイル管理システムの概念実証（PoC）。現在開発中（2026年）。',
         eyenavi: '株式会社コンピュータサイエンス研究所（北九州市）への出向で担当する、iOSナビアプリ「Eye Navi」のAndroid版開発。',
         adminxpert: '学校運営の日常業務を支える、カスタムワークフロー付き管理プラットフォーム。',
         examcell: 'Meenakshi Sundararajan Engineering College で使用されている試験管理システム。',
@@ -261,7 +261,7 @@ const T = {
           place: '東京、日本 🇯🇵',
           points: [
             '「社内規定QAシステム」を開発 — RAGを活用した社内向けAIチャットボット（2025年12月）。',
-            '「ファイル管理システム（PoC）」を開発中（2026年6月〜現在）。',
+            '「T-ATLAS」（ファイル管理システム・PoC）を開発中（2026年6月〜現在）。',
             '株式会社コンピュータサイエンス研究所（北九州市）に出向し、iOSナビアプリ「Eye Navi」のAndroid版開発を担当（2026年7月〜9月）。',
           ],
         },
