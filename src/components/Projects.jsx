@@ -44,10 +44,17 @@ export default function Projects() {
             >
               {/* window bar */}
               <div className="flex items-center justify-between px-4 py-2.5 border-b border-zinc-800 bg-zinc-900/60">
-                <span className="font-mono text-xs text-zinc-400">
-                  <span className="text-zinc-600">{String(i + 1).padStart(2, '0')}</span>{' '}
-                  {p.id}
-                  <span className="text-zinc-600">.{p.category === 'mobile' ? 'apk' : 'app'}</span>
+                <span className="font-mono text-xs text-zinc-400 flex items-center gap-2 min-w-0">
+                  <span className="truncate">
+                    <span className="text-zinc-600">{String(i + 1).padStart(2, '0')}</span>{' '}
+                    {p.id}
+                    <span className="text-zinc-600">.{p.category === 'mobile' ? 'apk' : 'app'}</span>
+                  </span>
+                  {p.work && (
+                    <span className="flex-shrink-0 text-[10px] text-lime-400 border border-lime-400/25 rounded px-1.5 py-px">
+                      {t.projects.workBadge}
+                    </span>
+                  )}
                 </span>
                 <div className="flex gap-2">
                   {p.github !== '#' && (
@@ -78,7 +85,7 @@ export default function Projects() {
               </div>
 
               <div className="p-5">
-                <h3 className="font-mono font-bold text-zinc-100 text-base">{p.title}</h3>
+                <h3 className="font-mono font-bold text-zinc-100 text-base">{t.projects.titles[p.id] ?? p.title}</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mt-2">{t.projects.desc[p.id] ?? p.desc}</p>
                 <div className="flex flex-wrap gap-1.5 mt-4">
                   {p.tech.map((t) => (
