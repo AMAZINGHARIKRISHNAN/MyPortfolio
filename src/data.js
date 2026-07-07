@@ -46,6 +46,16 @@ export const projects = [
     live: '#',
   },
   {
+    id: 'nutrimate',
+    title: 'Nutrimate',
+    category: 'web',
+    image: '/assets/images/projects/nutrimate.webp',
+    desc: 'Nutrition and fitness app: deep-learning food classifier (healthy/unhealthy), Groq-powered meal plans and chatbot, plus workout tutorials.',
+    tech: ['python', 'streamlit', 'groq', 'deep-learning'],
+    github: '#',
+    live: '#',
+  },
+  {
     id: 'adminxpert',
     title: "The Nest's AdminXpert",
     category: 'web',
