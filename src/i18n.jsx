@@ -64,7 +64,7 @@ const T = {
         't-atlas': 'File management system for internal operations — proof of concept in active development (2026).',
         digixcare: 'AI telemedicine app: CLIP image analysis + BioGPT symptom understanding, LLaMA consistency checks, and BioClinicalBERT severity triage — ~87% diagnosis accuracy.',
         nutrimate: 'Nutrition and fitness app: deep-learning food classifier (healthy/unhealthy), Groq-powered meal plans and chatbot, plus workout tutorials.',
-        eyenavi: 'Android version of the "Eye Navi" walking-navigation iOS app, built on secondment at Computer Science Laboratory, Kitakyushu.',
+        eyenavi: 'Eyes-free walking assistant for blind/low-vision pedestrians — on-device YOLOv11 segmentation detects obstacles, crosswalks, traffic signals and tactile paving, guiding users via TTS, spatial audio and haptics. Kotlin/Compose port of the iOS "EyeNavi" app, built on secondment at Computer Science Laboratory, Kitakyushu.',
         adminxpert: 'Administrative management platform with custom workflows powering day-to-day school operations.',
         examcell: 'Examination cell management system used by Meenakshi Sundararajan Engineering College.',
         empoweringvoters: 'Voter education and awareness platform with interactive learning features.',
@@ -85,7 +85,7 @@ const T = {
           points: [
             'Built the internal regulations Q&A system — a RAG-powered AI chatbot for company-wide use (Dec 2025).',
             'Developing "T-ATLAS", a file management system PoC for internal operations (Jun 2026 — present).',
-            'Seconded to Computer Science Laboratory (Kitakyushu) to build the Android version of the "Eye Navi" navigation app (Jul–Sep 2026).',
+            'Seconded to Computer Science Laboratory (Kitakyushu) to build "EyeNaviGo" — an on-device YOLOv11 eyes-free walking assistant for blind/low-vision pedestrians (Jul–Sep 2026).',
           ],
         },
         'The Nest School': {
@@ -237,14 +237,14 @@ const T = {
       titles: {
         'regs-qa': '社内規定QAシステム',
         't-atlas': 'T-ATLAS',
-        eyenavi: 'Eye Navi（Android版）',
+        eyenavi: 'EyeNaviGo（Android版）',
       },
       desc: {
         'regs-qa': 'RAGを活用した社内向けAIチャットボット。社内規定に関する質問に回答（2025年12月）。',
         't-atlas': '社内業務向けファイル管理システムの概念実証（PoC）。現在開発中（2026年）。',
         digixcare: 'AI遠隔医療アプリ。CLIPによる画像解析とBioGPTによる症状分析を組み合わせ、LLaMAで整合性を検証、BioClinicalBERTで重症度を分類（診断精度 約87%）。',
         nutrimate: '栄養・フィットネスアプリ。深層学習による食品の健康判定、Groq APIを活用した食事プラン生成とチャットボット、ワークアウト動画も提供。',
-        eyenavi: '株式会社コンピュータサイエンス研究所（北九州市）への出向で担当する、iOSナビアプリ「Eye Navi」のAndroid版開発。',
+        eyenavi: '視覚障がい者向け歩行支援アプリ。オンデバイスのYOLOv11セグメンテーションで障害物・横断歩道・信号・点字ブロックを検出し、音声・立体音響・振動でガイド。株式会社コンピュータサイエンス研究所（北九州市）への出向で担当した、iOSアプリ「Eye Navi」のKotlin/Compose移植版。',
         adminxpert: '学校運営の日常業務を支える、カスタムワークフロー付き管理プラットフォーム。',
         examcell: 'Meenakshi Sundararajan Engineering College で使用されている試験管理システム。',
         empoweringvoters: 'インタラクティブな学習機能を備えた有権者教育・啓発プラットフォーム。',
@@ -266,7 +266,7 @@ const T = {
           points: [
             '「社内規定QAシステム」を開発 — RAGを活用した社内向けAIチャットボット（2025年12月）。',
             '「T-ATLAS」（ファイル管理システム・PoC）を開発中（2026年6月〜現在）。',
-            '株式会社コンピュータサイエンス研究所（北九州市）に出向し、iOSナビアプリ「Eye Navi」のAndroid版開発を担当（2026年7月〜9月）。',
+            '株式会社コンピュータサイエンス研究所（北九州市）に出向し、視覚障がい者向け歩行支援アプリ「EyeNaviGo」（オンデバイスYOLOv11）の開発を担当（2026年7月〜9月）。',
           ],
         },
         'The Nest School': {

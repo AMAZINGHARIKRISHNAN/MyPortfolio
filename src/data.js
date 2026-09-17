@@ -26,13 +26,13 @@ export const projects = [
   },
   {
     id: 'eyenavi',
-    title: 'Eye Navi (Android)',
+    title: 'EyeNaviGo (Android)',
     category: 'mobile',
     work: true,
     image: '/assets/images/projects/eyenavi.webp',
-    desc: 'Android version of the "Eye Navi" walking-navigation iOS app, built on secondment at Computer Science Laboratory, Kitakyushu.',
-    tech: ['android', 'navigation'],
-    github: '#',
+    desc: 'Eyes-free walking assistant for blind/low-vision pedestrians — on-device YOLOv11 segmentation detects obstacles, crosswalks, traffic signals and tactile paving, guiding users via TTS, spatial audio and haptics. Kotlin/Compose port of the iOS "EyeNavi" app, built on secondment at Computer Science Laboratory, Kitakyushu.',
+    tech: ['kotlin', 'jetpack-compose', 'yolov11', 'camerax', 'litert'],
+    github: 'https://github.com/AMAZINGHARIKRISHNAN/EyenaviAndroid',
     live: '#',
   },
   {
