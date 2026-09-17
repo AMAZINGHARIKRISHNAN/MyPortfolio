@@ -57,6 +57,17 @@ export const projects = [
     live: '#',
   },
   {
+    id: 'myvaravuselavu',
+    title: 'MyVaravuSelavu',
+    category: 'web',
+    fit: 'contain',
+    image: '/assets/images/projects/myvaravuselavu.webp',
+    desc: 'Personal-finance PWA tracking JPY/INR income, expenses, and Japan-India remittances without ever summing the two currencies, plus commuter reimbursements, expense splitting, payslip parsing, and a natural-language quick-add. Opt-in Gemini features (conversational entry, receipt/payslip scanning, spoken insights) are scoped so the AI only classifies or rephrases — every figure is computed locally and checked against 1,500+ tests.',
+    tech: ['react', 'firebase', 'gemini', 'vite', 'tailwindcss'],
+    github: 'https://github.com/AMAZINGHARIKRISHNAN/myvaravuselavu',
+    live: '#',
+  },
+  {
     id: 'adminxpert',
     title: "The Nest's AdminXpert",
     category: 'web',
